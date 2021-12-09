@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'about' => 'homes#about', as: 'about'
 
+  # なんとなくusersとbooksのネストはしないurl長くなるし
+  resources :users, only: [:index, :show]
 
   resources :books, only: [:create, :index, :show, :destroy]
 end

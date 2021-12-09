@@ -1,0 +1,16 @@
+<!--Book.newを渡してあげる必要がある-->
+<!--コントローラーからできてるか注意-->
+<%= form_with model: book, url: books_path, local: true do |f| %>
+  <div>
+    <p>Title</p>
+    <%= f.text_field :title %><br />
+  </div>
+  <div>
+    <p>Body</p>
+    <%= f.text_area :body %>
+  </div>
+  <%= f.submit 'Create Book' %>
+
+<% end %>
+
+createbookで保存

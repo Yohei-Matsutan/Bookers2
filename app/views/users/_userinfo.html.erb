@@ -1,0 +1,8 @@
+<!--これを埋め込むときは表示するユーザ情報を渡してあげる必要がある-->
+<!--コントローラーからできてるか注意-->
+<div>
+  <%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg" %>
+  <%= user.name %>
+  <%= user.introduction %>
+  <%= link_to "edit", users_path %>
+</div>
