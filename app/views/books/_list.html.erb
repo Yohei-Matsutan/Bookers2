@@ -1,6 +1,7 @@
 <div>
   <% books.each do |book| %>
     <div>
+      <!--= link_to book_path(book.id) do %>-->
       <%= link_to user_path(book.user.id) do %>
         <!--bookからuserテーブルの情報を取得するときはこう書く-->
         <%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
