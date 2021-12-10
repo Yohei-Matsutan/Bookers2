@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   # なんとなくusersとbooksのネストはしないurl長くなるし
   resources :users, only: [:index, :show]
 
-  resources :books, only: [:create, :index, :show, :destroy]
+  resources :books, only: [:create, :index, :show, :destroy, :edit, :update]
 end

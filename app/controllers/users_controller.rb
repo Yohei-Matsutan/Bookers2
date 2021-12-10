@@ -6,5 +6,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # kaminari入れなきゃ
+    @books = @user.books.page(params[:page]).reverse_order
+    @newbook = Book.new
   end
 end

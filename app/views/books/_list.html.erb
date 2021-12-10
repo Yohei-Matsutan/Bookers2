@@ -1,14 +1,19 @@
-<% books.each do |book| %>
-  <div>
-    <%= link_to user_path(book.user.id) do %>
-      <!--bookからuserテーブルの情報を取得するときはこう書く-->
-      <%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
-    <%end%>
+<div>
+  <% books.each do |book| %>
+    <div>
+      <%= link_to user_path(book.user.id) do %>
+        <!--bookからuserテーブルの情報を取得するときはこう書く-->
+        <%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+      <%end%>
 
-    <%= link_to book_path(book.id) do %>
-      <%= book.title %>
-    <%end%>
+      <%= link_to book_path(book.id) do %>
+        <%= book.title %>
+      <%end%>
 
-    <%= book.body %>
-  </div>
-<% end %>
+      <%= book.body %>
+    </div>
+  <% end %>
+
+  <%= paginate books %>
+</div>
+
