@@ -4,5 +4,10 @@
   <%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg" %>
   <%= user.name %>
   <%= user.introduction %>
-  <%= link_to "edit", users_path %>
+
+  <% if user == current_user %>
+    <%= link_to "Edit", edit_user_path(user.id) %>
+  <% else %>
+    <%= link_to "Edit", user_path(current_user.id) %>
+  <% end %>
 </div>
