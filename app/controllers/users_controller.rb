@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.all.page(params[:page]).reverse_order
     @book = Book.new
   end
 
@@ -13,6 +13,10 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    if @user != current_user
+      redirect_to user_path(current_user.id)
+    else
+    end
   end
 
   def update

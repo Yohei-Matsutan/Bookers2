@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    # deviseではデフォルトでauthentication_keys(初期値はemailのみ)とpasswordが編集を許可されているので、
+    # ここは後付けのnameを追記すればいいが、
+    # 今回はauthentication_keysをnameに変更したので、emailの編集が許可されなくなってしまった
+    # だから、devise_parameter_sanitizer.permit(:sign_up, keys: [:name])これを↓にする
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
   end
 end

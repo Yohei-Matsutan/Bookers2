@@ -1,7 +1,13 @@
 <p id="notice"><%= flash[:notice] %></p>
 
-<h1>User#show</h1>
-<%= render 'users/userinfo', user: @user %>
-<%= render 'books/new', book: @newbook %>
-
-<%= render 'books/list', books: @books %>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'users/userinfo', user: @user %>
+      <%= render 'books/new', book: @newbook %>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <%= render 'books/list', books: @books %>
+    </div>
+  </div>
+</div>
